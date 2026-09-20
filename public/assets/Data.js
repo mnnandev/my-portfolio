@@ -189,13 +189,6 @@ const projectcategories = [
         date: "November 2023"
       },
       {
-        src: "/assets/images/staging-itpath.png",
-        name: "Itpath",
-        link: "https://staging.itpath360.com/",
-        technologies: ["WordPress", "PHP", "MySQL"],
-        date: "October 2023"
-      },
-      {
         src: "/assets/images/captivate-media.png",
         name: "Captivate Media",
         link: "https://captivate-media.vervixsolutions.com/",

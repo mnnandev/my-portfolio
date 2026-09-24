@@ -19,7 +19,7 @@ const Aside = () => {
         />
         <div className="info-content">
           <h1 className="name">Manan Mazhar</h1>
-          <p className="title">Web Developer</p>
+          <p className="title">Fullstack WordPress and Shopify</p>
         </div>
         <button className="info_more-btn" onClick={()=>setShow(!show)}>
           <FaAngleDown className='text-[#ffda6b]'/>

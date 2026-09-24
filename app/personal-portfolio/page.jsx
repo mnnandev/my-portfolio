@@ -9,7 +9,7 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 
 const PersonalPortfolio = () => {
-  const [activeRoute, setActiveRoute] = useState("about");
+  const [activeRoute, setActiveRoute] = useState("portfolio");
   const [lightMode, setLightMode] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false); // Ensure no flicker
 
@@ -48,6 +48,12 @@ const PersonalPortfolio = () => {
           <span className="purple-circle"></span>
           <nav className="navbar">
             <ul className="navbar-list">
+              <li className="navbar-item" onClick={() => setActiveRoute("portfolio")}>
+                <button className={`navbar-link ${activeRoute === "portfolio" ? "active" : ""}`}>
+                  Portfolio
+                </button>
+              </li>
+
               <li className="navbar-item" onClick={() => setActiveRoute("about")}>
                 <button className={`navbar-link ${activeRoute === "about" ? "active" : ""}`}>
                   About
@@ -57,12 +63,6 @@ const PersonalPortfolio = () => {
               <li className="navbar-item" onClick={() => setActiveRoute("resume")}>
                 <button className={`navbar-link ${activeRoute === "resume" ? "active" : ""}`}>
                   Resume
-                </button>
-              </li>
-
-              <li className="navbar-item" onClick={() => setActiveRoute("portfolio")}>
-                <button className={`navbar-link ${activeRoute === "portfolio" ? "active" : ""}`}>
-                  Portfolio
                 </button>
               </li>
 

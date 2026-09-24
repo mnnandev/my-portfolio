@@ -6,14 +6,28 @@ import { projectcategories } from "@/public/assets/Data";
 
 const Portfolio = () => {
   const [activeCate, setActiveCate] = useState("All");
+  const [activeSubCate, setActiveSubCate] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [visibleProjects, setVisibleProjects] = useState(6);
   const [loadingStates, setLoadingStates] = useState({});
+  const [showComingSoon, setShowComingSoon] = useState(false);
 
   // Function to handle category click
   const handleClick = (category) => {
+    const cat = projectcategories.find((c) => c.category === category);
     setActiveCate(category);
-    setVisibleProjects(6); // Reset visible projects when changing category
+    // WordPress pe click → default Project submenu
+    setActiveSubCate(category === "Wordpress" ? "Project" : null);
+    setVisibleProjects(100);
+    if (cat?.comingSoon) {
+      setShowComingSoon(true);
+    }
+  };
+
+  const handleSubClick = (category, sub) => {
+    setActiveCate(category);
+    setActiveSubCate(sub);
+    setVisibleProjects(100);
   };
 
   // Function to open project modal
@@ -42,10 +56,18 @@ const Portfolio = () => {
   // Get filtered projects
   const getFilteredProjects = () => {
     let projects = [];
-    projectcategories.forEach(item => {
+    projectcategories.forEach((item) => {
       if (activeCate === "All" || item.category === activeCate) {
         if (item.projectDetail) {
-          projects = [...projects, ...item.projectDetail];
+          let list = item.projectDetail;
+          if (
+            activeCate === "Wordpress" &&
+            activeSubCate &&
+            item.category === "Wordpress"
+          ) {
+            list = list.filter((p) => p.subcategory === activeSubCate);
+          }
+          projects = [...projects, ...list];
         }
       }
     });
@@ -66,13 +88,40 @@ const Portfolio = () => {
           {/* Category Filter Buttons */}
           <ul className="filter-list">
             {projectcategories.map((item) => (
-              <li className="filter-item" key={item.category}>
+              <li
+                className={`filter-item ${item.subcategories ? "has-submenu" : ""}`}
+                key={item.category}
+              >
                 <button
-                  className={`${item.category === activeCate ? "active" : ""}`}
+                  className={`${
+                    activeCate === item.category ? "active" : ""
+                  }`}
                   onClick={() => handleClick(item.category)}
                 >
                   {item.category}
                 </button>
+                {item.subcategories && (
+                  <ul className="filter-submenu">
+                    {item.subcategories.map((sub) => (
+                      <li key={sub}>
+                        <button
+                          className={
+                            activeCate === item.category &&
+                            activeSubCate === sub
+                              ? "active"
+                              : ""
+                          }
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSubClick(item.category, sub);
+                          }}
+                        >
+                          {sub}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
@@ -80,14 +129,14 @@ const Portfolio = () => {
           {/* Project List */}
           <ul className="project-list">
             {filteredProjects.slice(0, visibleProjects).map((project, index) => (
-              <li className="project-item active" key={index}>
+              <li className="project-item active" key={project.name + index}>
                 <div className="project-content">
                   <div className="project-img">
                     <div className="project-item-icon-box">
                       <IoMdEye />
                     </div>
                     <div className="image-container">
-                      {loadingStates[project.id] !== false && (
+                      {loadingStates[project.name] !== false && (
                         <div className="image-placeholder" />
                       )}
                       <Image
@@ -95,9 +144,10 @@ const Portfolio = () => {
                         alt={project.name}
                         height={400}
                         width={800}
-                        className={`project-image ${loadingStates[project.id] === false ? 'loaded' : ''}`}
+                        className={`project-image ${loadingStates[project.name] === false ? 'loaded' : ''}`}
                         loading="lazy"
-                        onLoad={() => handleImageLoad(project.id)}
+                        onLoad={() => handleImageLoad(project.name)}
+                        style={{ objectFit: "cover", objectPosition: "top" }}
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkMjU1LS0yMi4qLjgyPj4+Ojo4Ojo4Ojo4Ojo4Ojo4Ojo4Ojo4Ojr/2wBDAR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHr/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       />
@@ -105,7 +155,9 @@ const Portfolio = () => {
                   </div>
                   <div className="project-info">
                     <h3 className="project-title">{project.name}</h3>
-                    <p className="project-category">{project.category}</p>
+                    <p className="project-category">
+                      {project.subcategory || activeCate}
+                    </p>
                     <div className="project-links">
                       <button
                         onClick={() => openProjectModal(project)}
@@ -191,7 +243,94 @@ const Portfolio = () => {
           </div>
         )}
 
+        {/* Coming Soon Modal */}
+        {showComingSoon && (
+          <div
+            className="project-modal-overlay"
+            onClick={() => setShowComingSoon(false)}
+          >
+            <div
+              className="coming-soon-modal"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="modal-close-btn"
+                onClick={() => setShowComingSoon(false)}
+              >
+                <IoMdClose />
+              </button>
+              <h2 className="coming-soon-title">Coming Soon</h2>
+              <p className="coming-soon-text">
+                MERN Stack projects are under development. Stay tuned!
+              </p>
+              <button
+                className="coming-soon-btn"
+                onClick={() => setShowComingSoon(false)}
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        )}
+
         <style jsx>{`
+          .filter-item.has-submenu {
+            position: relative;
+          }
+
+          .filter-submenu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 120px;
+            background: var(--eerie-black-2);
+            border: 1px solid var(--jet);
+            border-radius: 10px;
+            padding: 6px;
+            list-style: none;
+            margin: 0;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 50;
+            box-shadow: var(--shadow-2);
+          }
+
+          .filter-item.has-submenu:hover .filter-submenu,
+          .filter-item.has-submenu:focus-within .filter-submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+          }
+
+          .filter-submenu li {
+            margin: 0;
+          }
+
+          .filter-submenu button {
+            width: 100%;
+            text-align: left;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            color: var(--light-gray);
+            font-size: var(--fs-6);
+            cursor: pointer;
+            transition: var(--transition-1);
+          }
+
+          .filter-submenu button:hover {
+            background: var(--onyx);
+            color: var(--orange-yellow-crayola);
+          }
+
+          .filter-submenu button.active {
+            color: var(--orange-yellow-crayola);
+          }
+
           .project-content {
             background: var(--eerie-black-2);
             border-radius: 16px;
@@ -205,32 +344,40 @@ const Portfolio = () => {
           }
 
           .project-info {
-            padding: 1.5rem;
+            padding: 1.25rem 1.25rem 1.35rem;
           }
 
           .project-links {
             display: flex;
-            gap: 1rem;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 8px;
             margin-top: 1rem;
+            width: 100%;
           }
 
           .view-details-btn,
           .live-demo-btn,
           .github-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: var(--fs-6);
-            font-weight: var(--fw-500);
-            transition: var(--transition-1);
-            display: flex;
+            flex: 1 1 0;
+            min-width: 0;
+            justify-content: center;
             align-items: center;
-            gap: 0.5rem;
+            gap: 6px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1;
+            white-space: nowrap;
+            transition: var(--transition-1);
+            display: inline-flex;
             cursor: pointer;
             border: none;
           }
 
           .view-details-btn {
-            background: var(--orange-yellow-crayola);
+            background: goldenrod;
             color: var(--smoky-black);
           }
 
@@ -239,6 +386,13 @@ const Portfolio = () => {
             background: var(--jet);
             color: var(--light-gray);
             text-decoration: none;
+            border: 1px solid var(--jet);
+          }
+
+          .live-demo-btn svg,
+          .github-btn svg {
+            flex-shrink: 0;
+            font-size: 11px;
           }
 
           .view-details-btn:hover,
@@ -248,11 +402,17 @@ const Portfolio = () => {
             box-shadow: var(--shadow-2);
           }
 
+          .live-demo-btn:hover,
+          .github-btn:hover {
+            border-color: var(--orange-yellow-crayola);
+            color: var(--orange-yellow-crayola);
+          }
+
           /* Image Loading Styles */
           .image-container {
             position: relative;
             width: 100%;
-            height: 400px;
+            height: 100%;
             overflow: hidden;
           }
 
@@ -264,11 +424,16 @@ const Portfolio = () => {
             height: 100%;
             background: var(--jet);
             animation: pulse 1.5s infinite;
+            z-index: 1;
           }
 
           .project-image {
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: top !important;
           }
 
           .project-image.loaded {
@@ -290,7 +455,7 @@ const Portfolio = () => {
 
           .show-more-btn {
             padding: 0.75rem 1.5rem;
-            background: var(--orange-yellow-crayola);
+            background: goldenrod;
             color: var(--smoky-black);
             border: none;
             border-radius: 8px;
@@ -318,6 +483,51 @@ const Portfolio = () => {
             align-items: center;
             z-index: 1000;
             padding: 1rem;
+          }
+
+          .coming-soon-modal {
+            background: var(--eerie-black-2);
+            border: 1px solid var(--jet);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            padding: 2.5rem 2rem 2rem;
+            position: relative;
+            text-align: center;
+            box-shadow: var(--shadow-5);
+          }
+
+          .coming-soon-title {
+            color: var(--orange-yellow-crayola);
+            font-size: var(--fs-1);
+            font-weight: var(--fw-600);
+            margin: 0 0 0.75rem;
+          }
+
+          .coming-soon-text {
+            color: var(--light-gray);
+            font-size: var(--fs-5);
+            line-height: 1.6;
+            margin: 0 0 1.5rem;
+          }
+
+          .coming-soon-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 0.75rem 1.75rem;
+            background: var(--orange-yellow-crayola);
+            color: var(--smoky-black);
+            border: none;
+            border-radius: 8px;
+            font-size: var(--fs-6);
+            font-weight: var(--fw-500);
+            cursor: pointer;
+            transition: var(--transition-1);
+          }
+
+          .coming-soon-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-2);
           }
 
           .project-modal {
@@ -392,7 +602,15 @@ const Portfolio = () => {
 
           @media (max-width: 640px) {
             .project-links {
-              flex-direction: column;
+              flex-direction: row;
+              flex-wrap: nowrap;
+            }
+
+            .view-details-btn,
+            .live-demo-btn,
+            .github-btn {
+              font-size: 12px;
+              padding: 9px 10px;
             }
 
             .project-modal {

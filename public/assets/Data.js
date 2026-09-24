@@ -31,7 +31,7 @@ const projectcategories = [
     category: "Frontend",
     projectDetail: [
       {
-        src: "/assets/images/formhub.png",
+        src: "/assets/images/formhub.jpg",
         name: "Form Hub",
         link: "https://form-hub-eight.vercel.app/",
         description: "FarmHub is a modern agricultural platform blending sustainable practices with smart technology to revolutionize farming. It offers eco-friendly solutions, premium produce, and expert services to empower farmers and nourish communities.",
@@ -39,13 +39,13 @@ const projectcategories = [
         date: "March 2024",
         githubUrl: "https://github.com/username/form-hub",
         gallery: [
-          "/assets/images/formhub.png",
+          "/assets/images/formhub.jpg",
           "/assets/images/formhub-detail.png",
           "/assets/images/formhub-mobile.png"
         ]
       },
       {
-        src: "/assets/images/anime.png",
+        src: "/assets/images/anime.jpg",
         name: "Anime App",
         link: "https://anime-app-two.vercel.app/",
         technologies: ["React", "Jikan API"],
@@ -59,7 +59,7 @@ const projectcategories = [
     subcategories: ["Theme", "Plugin", "Project"],
     projectDetail: [
       {
-        src: "/assets/images/screencapture-poplasers-home-2026-09-24-17_49_24.png",
+        src: "/assets/images/screencapture-poplasers-home-2026-09-24-17_49_24.jpg",
         name: "POP Lasers",
         link: "https://poplasers.com/home/",
         subcategory: "Project",
@@ -84,7 +84,7 @@ const projectcategories = [
         ],
         date: "September 2026",
         gallery: [
-          "/assets/images/screencapture-poplasers-home-2026-09-24-17_49_24.png"
+          "/assets/images/screencapture-poplasers-home-2026-09-24-17_49_24.jpg"
         ]
       },
       {
@@ -150,7 +150,7 @@ const projectcategories = [
         ]
       },
       {
-        src: "/assets/images/synergylandpartners.png",
+        src: "/assets/images/synergylandpartners.jpg",
         name: "Synergy Land Partners",
         link: "https://synergylandpartners.com",
         subcategory: "Project",
@@ -166,12 +166,12 @@ const projectcategories = [
         date: "February 2024",
         githubUrl: "https://github.com/username/synergy-land-partners",
         gallery: [
-          "/assets/images/synergylandpartners.png",
+          "/assets/images/synergylandpartners.jpg",
           "/assets/images/synergylandpartners-mobile.png"
         ]
       },
       {
-        src: "/assets/images/nylihomebuyers.png",
+        src: "/assets/images/nylihomebuyers.jpg",
         name: "Nyli Home Buyers",
         link: "https://nylihomebuyers.com/",
         subcategory: "Project",
@@ -180,7 +180,7 @@ const projectcategories = [
         githubUrl: "https://github.com/username/nyli-home-buyers"
       },
       {
-        src: "/assets/images/maidsbygrace.png",
+        src: "/assets/images/maidsbygrace.jpg",
         name: "Maids by Grace",
         link: "https://maidsbygrace.com/",
         subcategory: "Project",
@@ -188,7 +188,7 @@ const projectcategories = [
         date: "June 2023"
       },
       {
-        src: "/assets/images/assetrsus.png",
+        src: "/assets/images/assetrsus.jpg",
         name: "Assetrsus",
         link: "https://assetrsus.com",
         subcategory: "Project",
@@ -196,7 +196,7 @@ const projectcategories = [
         date: "July 2022"
       },
       {
-        src: "/assets/images/interwood.png",
+        src: "/assets/images/interwood.jpg",
         name: "Interwood",
         link: "https://interwood.com",
         subcategory: "Project",
@@ -204,7 +204,7 @@ const projectcategories = [
         date: "June 2022"
       },
       {
-        src: "/assets/images/brightside.png",
+        src: "/assets/images/brightside.jpg",
         name: "Brightside",
         link: "https://brightside.com",
         subcategory: "Project",
@@ -212,7 +212,7 @@ const projectcategories = [
         date: "February 2022"
       },
       {
-        src: "/assets/images/bookclubs.png",
+        src: "/assets/images/bookclubs.jpg",
         name: "Bookclubs",
         link: "https://bookclubs.com/",
         subcategory: "Project",
@@ -220,7 +220,7 @@ const projectcategories = [
         date: "January 2022"
       },
       {
-        src: "/assets/images/eco-mail.png",
+        src: "/assets/images/eco-mail.jpg",
         name: "Eco Mail",
         link: "https://eco-mail.com",
         subcategory: "Project",
@@ -228,7 +228,7 @@ const projectcategories = [
         date: "December 2021"
       },
       {
-        src: "/assets/images/boulevard.png",
+        src: "/assets/images/boulevard.jpg",
         name: "Boulevard",
         link: "https://boulevard.com",
         subcategory: "Project",
@@ -236,7 +236,7 @@ const projectcategories = [
         date: "November 2021"
       },
       {
-        src: "/assets/images/smilebigdreambigger.png",
+        src: "/assets/images/smilebigdreambigger.jpg",
         name: "Smile Big Dream Bigger",
         link: "https://smilebigdreambigger.org",
         subcategory: "Project",
@@ -249,7 +249,7 @@ const projectcategories = [
     category: "Shopify",
     projectDetail: [
       {
-        src: "/assets/images/screencapture-atjaunojies-qid40bnt-myshopify-2026-09-24-17_31_07.png",
+        src: "/assets/images/screencapture-atjaunojies-qid40bnt-myshopify-2026-09-24-17_31_07.jpg",
         name: "Atjaunojies",
         link: "https://atjaunojies-qid40bnt.myshopify.com/",
         description:
@@ -265,11 +265,11 @@ const projectcategories = [
         technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
         date: "September 2026",
         gallery: [
-          "/assets/images/screencapture-atjaunojies-qid40bnt-myshopify-2026-09-24-17_31_07.png"
+          "/assets/images/screencapture-atjaunojies-qid40bnt-myshopify-2026-09-24-17_31_07.jpg"
         ]
       },
       {
-        src: "/assets/images/screencapture-laniglow-2026-09-24-17_38_18.png",
+        src: "/assets/images/screencapture-laniglow-2026-09-24-17_38_18.jpg",
         name: "Lani Glow",
         link: "https://laniglow.com/",
         description:
@@ -285,11 +285,11 @@ const projectcategories = [
         technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
         date: "September 2026",
         gallery: [
-          "/assets/images/screencapture-laniglow-2026-09-24-17_38_18.png"
+          "/assets/images/screencapture-laniglow-2026-09-24-17_38_18.jpg"
         ]
       },
       {
-        src: "/assets/images/screencapture-davesdeals-au-2026-09-24-17_40_45.png",
+        src: "/assets/images/screencapture-davesdeals-au-2026-09-24-17_40_45.jpg",
         name: "Dave's Deals",
         link: "https://davesdeals.com.au/",
         description:
@@ -307,11 +307,11 @@ const projectcategories = [
         technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
         date: "September 2026",
         gallery: [
-          "/assets/images/screencapture-davesdeals-au-2026-09-24-17_40_45.png"
+          "/assets/images/screencapture-davesdeals-au-2026-09-24-17_40_45.jpg"
         ]
       },
       {
-        src: "/assets/images/screencapture-spiritual-green-it-myshopify-it-it-2026-09-24-17_44_06.png",
+        src: "/assets/images/screencapture-spiritual-green-it-myshopify-it-it-2026-09-24-17_44_06.jpg",
         name: "Spiritual Green",
         link: "https://spiritual-green-it.myshopify.com/it-it",
         description:
@@ -328,7 +328,7 @@ const projectcategories = [
         technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript", "Judge.me"],
         date: "September 2026",
         gallery: [
-          "/assets/images/screencapture-spiritual-green-it-myshopify-it-it-2026-09-24-17_44_06.png"
+          "/assets/images/screencapture-spiritual-green-it-myshopify-it-it-2026-09-24-17_44_06.jpg"
         ]
       }
     ]

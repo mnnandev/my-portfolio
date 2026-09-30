@@ -1,19 +1,30 @@
 "use client";
 
 import React from "react";
-import { FaPaperPlane } from "react-icons/fa";
-import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
+
+const WHATSAPP_NUMBER = "923186812911";
+const WHATSAPP_MESSAGE =
+  "Hi Manan! I saw your portfolio and would like to discuss a project, get more details, or request a quote.";
 
 const WhatsAppFloat = () => {
+  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
   return (
-    <Link href="/#contact" className="whatsapp-float">
+    <a
+      href={href}
+      className="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp about projects and quotes"
+    >
       <span className="whatsapp-float__icon" aria-hidden="true">
-        <FaPaperPlane size={22} />
+        <FaWhatsapp size={26} />
       </span>
       <span className="whatsapp-float__text">
         <span className="whatsapp-float__title">Let&apos;s build something</span>
         <span className="whatsapp-float__subtitle">
-          Contact me for project details, quotes &amp; new builds
+          WhatsApp me for project details, quotes &amp; new builds
         </span>
       </span>
       <style jsx>{`
@@ -30,9 +41,9 @@ const WhatsAppFloat = () => {
           border-radius: 999px;
           text-decoration: none;
           color: #fff;
-          background: linear-gradient(135deg, #ffda6b 0%, #e6b800 100%);
+          background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
           box-shadow:
-            0 8px 24px rgba(255, 214, 10, 0.35),
+            0 8px 24px rgba(37, 211, 102, 0.35),
             0 2px 8px rgba(0, 0, 0, 0.25);
           border: 1px solid rgba(255, 255, 255, 0.2);
           transition:
@@ -43,7 +54,7 @@ const WhatsAppFloat = () => {
         .whatsapp-float:hover {
           transform: translateY(-3px);
           box-shadow:
-            0 12px 28px rgba(255, 214, 10, 0.45),
+            0 12px 28px rgba(37, 211, 102, 0.45),
             0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
@@ -55,8 +66,7 @@ const WhatsAppFloat = () => {
           width: 2.75rem;
           height: 2.75rem;
           border-radius: 50%;
-          background: rgba(0, 0, 0, 0.12);
-          color: var(--smoky-black);
+          background: rgba(255, 255, 255, 0.15);
         }
 
         .whatsapp-float__text {
@@ -65,12 +75,12 @@ const WhatsAppFloat = () => {
           gap: 0.1rem;
           line-height: 1.25;
           min-width: 0;
-          color: var(--smoky-black);
         }
 
         .whatsapp-float__title {
           font-size: 0.8125rem;
           font-weight: 600;
+          letter-spacing: 0.01em;
         }
 
         .whatsapp-float__subtitle {
@@ -101,7 +111,7 @@ const WhatsAppFloat = () => {
           }
         }
       `}</style>
-    </Link>
+    </a>
   );
 };
 

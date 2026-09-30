@@ -3,7 +3,12 @@
 import { mnnan, PROFILE_PLACEHOLDER } from "@/public/assets/Data";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { MdLocationOn } from "react-icons/md";
+import {
+  MdMailOutline,
+  MdPhone,
+  MdCalendarToday,
+  MdLocationOn,
+} from "react-icons/md";
 import { FaFacebook, FaInstagram, FaAngleDown, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Aside = () => {
@@ -48,11 +53,42 @@ const Aside = () => {
         <ul className="contacts-list">
           <li className="contact-item">
             <div className="icon-box">
+              <MdMailOutline color="goldenrod" size={24} />
+            </div>
+            <div className="contact-info">
+              <p className="contact-title">Email</p>
+              <a href="mailto:mnnanhavibhutta@gmail.com" className="contact-link">
+                mnnanhavibhutta@gmail.com
+              </a>
+            </div>
+          </li>
+          <li className="contact-item">
+            <div className="icon-box">
+              <MdPhone color="goldenrod" size={24} />
+            </div>
+            <div className="contact-info">
+              <p className="contact-title">Phone</p>
+              <a href="tel:+923186812911" className="contact-link">
+                +923186812911
+              </a>
+            </div>
+          </li>
+          <li className="contact-item">
+            <div className="icon-box">
+              <MdCalendarToday color="goldenrod" />
+            </div>
+            <div className="contact-info">
+              <p className="contact-title">Birthday</p>
+              <time dateTime="2003-04-28">April 28, 2003</time>
+            </div>
+          </li>
+          <li className="contact-item">
+            <div className="icon-box">
               <MdLocationOn color="goldenrod" />
             </div>
             <div className="contact-info">
-              <p className="contact-title">Location</p>
-              <p className="contact-link">Pakistan</p>
+              <p className="contact-title">Vehair</p>
+              <address>vehari,punjab,pakistan</address>
             </div>
           </li>
         </ul>

@@ -95,14 +95,16 @@
   display: none;
 }
 
-.contact-profile-links {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 2rem;
-  display: grid;
-  gap: 0.5rem;
+.faq-standalone {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
 }
 
-.contact-profile-links a {
+.faq-standalone-back {
+  margin-bottom: 1rem;
+}
+
+.faq-standalone-back a {
   color: var(--orange-yellow-crayola);
 }

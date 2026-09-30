@@ -89,19 +89,22 @@ const WhatsAppFloat = () => {
           opacity: 0.92;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           .whatsapp-float {
             right: 1rem;
-            bottom: 1rem;
-            padding: 0.55rem;
+            bottom: 5.75rem;
+            padding: 0;
             border-radius: 50%;
-            width: 3.25rem;
-            height: 3.25rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            min-width: 3.5rem;
+            max-width: 3.5rem;
             justify-content: center;
+            align-items: center;
           }
 
           .whatsapp-float__text {
-            display: none;
+            display: none !important;
           }
 
           .whatsapp-float__icon {

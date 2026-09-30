@@ -2,6 +2,7 @@
 import About from "@/components/About";
 import Aside from "@/components/Aside";
 import Contact from "@/components/Contact";
+import Faq from "@/components/Faq";
 import Portfolio from "@/components/Portfolio";
 import Resume from "@/components/Resume";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -64,6 +65,12 @@ const PersonalPortfolio = () => {
                 </button>
               </li>
 
+              <li className="navbar-item" onClick={() => setActiveRoute("faq")}>
+                <button className={`navbar-link ${activeRoute === "faq" ? "active" : ""}`}>
+                  FAQ
+                </button>
+              </li>
+
               <li className="navbar-item" onClick={() => setActiveRoute("contact")}>
                 <button className={`navbar-link ${activeRoute === "contact" ? "active" : ""}`}>
                   Contact
@@ -86,6 +93,9 @@ const PersonalPortfolio = () => {
           </div>
           <div className={activeRoute === "portfolio" ? "" : "tab-panel-hidden"}>
             <Portfolio />
+          </div>
+          <div className={activeRoute === "faq" ? "" : "tab-panel-hidden"}>
+            <Faq />
           </div>
           <div className={activeRoute === "contact" ? "" : "tab-panel-hidden"}>
             <Contact />

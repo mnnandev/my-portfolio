@@ -120,45 +120,6 @@ const Contact = () => {
             </button>
           </Reveal>
         </section>
-        <section className="contact-profiles" aria-label="Social profiles">
-          <h3 className="h3 form-title">Connect</h3>
-          <ul className="contact-profile-links">
-            <li>
-              <a
-                href="https://www.linkedin.com/in/manan-mazhar-453b9b2b2/"
-                rel="me noopener noreferrer"
-              >
-                Manan Mazhar on LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/mnnandev" rel="me noopener noreferrer">
-                Manan Mazhar on GitHub
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/mananmazhardev/"
-                rel="me noopener noreferrer"
-              >
-                Manan Mazhar on Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://web.facebook.com/mnnan.bhutta.94"
-                rel="me noopener noreferrer"
-              >
-                Manan Mazhar on Facebook
-              </a>
-            </li>
-            <li>
-              <a href="https://starlent.tech" rel="me noopener noreferrer">
-                Starlent Tech
-              </a>
-            </li>
-          </ul>
-        </section>
       </article>
     </>
   );

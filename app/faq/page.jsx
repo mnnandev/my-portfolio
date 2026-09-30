@@ -1,5 +1,5 @@
 import Link from "next/link";
-import FaqSection from "@/components/seo/FaqSection";
+import Faq from "@/components/Faq";
 import JsonLdScript from "@/components/seo/JsonLdScript";
 import { buildFaqPageGraphJsonLd } from "@/lib/jsonLd";
 import { seo, siteUrl } from "@/lib/siteConfig";
@@ -21,11 +21,11 @@ export default function FaqPage() {
   return (
     <>
       <JsonLdScript data={buildFaqPageGraphJsonLd()} />
-      <main className="service-page">
-        <p>
+      <main className="faq-standalone">
+        <p className="faq-standalone-back">
           <Link href="/">← Back to portfolio</Link>
         </p>
-        <FaqSection />
+        <Faq />
       </main>
     </>
   );

@@ -1,10 +1,10 @@
 {
-  "name": "Mnnan - Frontend Developer & WordPress Specialist",
-  "short_name": "Mnnan",
-  "description": "Frontend Developer & WordPress Specialist Portfolio",
+  "name": "Manan Mazhar | Full Stack Developer",
+  "short_name": "Manan Mazhar",
+  "description": "Full Stack Developer — Shopify, WordPress, WooCommerce, OpenCart and MERN stack.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#121212",
   "theme_color": "#ffd60a",
   "icons": [
     {
@@ -18,4 +18,4 @@
       "type": "image/png"
     }
   ]
-} 
+}

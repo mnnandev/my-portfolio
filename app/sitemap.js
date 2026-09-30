@@ -1,20 +1,16 @@
-import { siteConfig } from './metadata';
+import { serviceSlugs } from "@/lib/servicesContent";
+import { siteUrl } from "@/lib/siteConfig";
 
 export default function sitemap() {
-  const baseUrl = siteConfig.url;
-  
-  // Add all your main routes here
-  const routes = [
-    '',
-    '/about',
-    '/portfolio',
-    '/contact',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: route === '' ? 1 : 0.8,
-  }));
+  const base = siteUrl;
+  const now = new Date();
 
-  return routes;
-} 
+  const staticRoutes = ["", "/faq", ...serviceSlugs.map((s) => `/services/${s}`)];
+
+  return staticRoutes.map((route) => ({
+    url: `${base}${route}`,
+    lastModified: now,
+    changeFrequency: route === "" ? "weekly" : "monthly",
+    priority: route === "" ? 1 : 0.85,
+  }));
+}

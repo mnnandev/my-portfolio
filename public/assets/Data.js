@@ -1,12 +1,15 @@
-import avtar from "@/public/assets/images/my-avatar.png";
-import mnnan from "@/public/assets/images/profile-image-mnnan.jpg";
 import icondesgin from "@/public/assets/images/icon-design.svg";
 import webIcon from "@/public/assets/images/icon-dev.svg";
 import mobIcon from "@/public/assets/images/icon-app.svg";
 import iconphoto from "@/public/assets/images/icon-photo.svg";
-import avatar1 from "@/public/assets/images/avatar-1.png";
 import iconquote from "@/public/assets/images/icon-quote.svg";
-import project1 from "@/public/assets/images/project-1.jpg";
+
+const avtar = "/assets/images/my-avatar.png";
+const mnnan = "/assets/images/profile-image-mnnan.jpg";
+const avatar1 = "/assets/images/avatar-1.png";
+const project1 = "/assets/images/project-1.jpg";
+export const PROJECT_PLACEHOLDER = "/assets/images/project-placeholder.svg";
+export const PROFILE_PLACEHOLDER = "/assets/images/profile-placeholder.svg";
 
 // Export all static assets
 export {
@@ -28,33 +31,6 @@ const projectcategories = [
     category: "All",
   },
   {
-    category: "Frontend",
-    projectDetail: [
-      {
-        src: "/assets/images/formhub.jpg",
-        name: "Form Hub",
-        link: "https://form-hub-eight.vercel.app/",
-        description: "FarmHub is a modern agricultural platform blending sustainable practices with smart technology to revolutionize farming. It offers eco-friendly solutions, premium produce, and expert services to empower farmers and nourish communities.",
-        technologies: ["React", "Next.js", "Tailwind CSS"],
-        date: "March 2024",
-        githubUrl: "https://github.com/username/form-hub",
-        gallery: [
-          "/assets/images/formhub.jpg",
-          "/assets/images/formhub-detail.png",
-          "/assets/images/formhub-mobile.png"
-        ]
-      },
-      {
-        src: "/assets/images/anime.jpg",
-        name: "Anime App",
-        link: "https://anime-app-two.vercel.app/",
-        technologies: ["React", "Jikan API"],
-        date: "June 2023",
-        githubUrl: "https://github.com/username/anime-app"
-      }
-    ]
-  },
-  {
     category: "Wordpress",
     subcategories: ["Theme", "Plugin", "Project"],
     projectDetail: [
@@ -63,6 +39,10 @@ const projectcategories = [
         name: "POP Lasers",
         link: "https://poplasers.com/home/",
         subcategory: "Project",
+        problem:
+          "The client needed a polished WordPress site with lead capture, payment flows, and password-protected areas within a tight deadline.",
+        result:
+          "TODO: Add client-reported metrics (traffic, leads, or launch timeline confirmation).",
         description:
           "A WordPress website built with Elementor and Elementor Pro, delivered in 7 days. Includes Fluent Forms, password protection on all pages, payment integration as per client requirements, complete mail setup, and custom-built tables.",
         features: [
@@ -125,11 +105,11 @@ const projectcategories = [
         link: "https://pegazusglobaltravel.com/",
         subcategory: "Project",
         description:
-          "A travel metasearch platform converted from a complete Figma design into a fully functional WordPress website in 7 days — frontend and backend end to end. Users compare flights, hotels, cars, cruises, tours, trains, and insurance in one place. Pegazus does not sell tickets directly; it connects travelers to the best deals from hundreds of providers worldwide.",
+          "A travel metasearch platform converted from a complete Figma design into a fully functional WordPress website in 7 days — UI and backend end to end. Users compare flights, hotels, cars, cruises, tours, trains, and insurance in one place. Pegazus does not sell tickets directly; it connects travelers to the best deals from hundreds of providers worldwide.",
         features: [
           "Figma → WordPress pixel-perfect conversion",
           "7 full pages built from scratch",
-          "Custom frontend (HTML, CSS, JS) in WordPress",
+          "Custom UI (HTML, CSS, JS) in WordPress",
           "Backend: forms, dynamic content, plugins, performance",
           "Fully responsive across all devices",
           "Search filters, comparison UI, FAQ accordion",
@@ -165,10 +145,7 @@ const projectcategories = [
         technologies: ["WordPress", "PHP", "MySQL", "JavaScript", "CSS3"],
         date: "February 2024",
         githubUrl: "https://github.com/username/synergy-land-partners",
-        gallery: [
-          "/assets/images/synergylandpartners.jpg",
-          "/assets/images/synergylandpartners-mobile.png"
-        ]
+        gallery: ["/assets/images/synergylandpartners.jpg"]
       },
       {
         src: "/assets/images/nylihomebuyers.jpg",

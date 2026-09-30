@@ -1,36 +1,54 @@
+"use client";
+
 import React from "react";
 import { IoBookOutline } from "react-icons/io5";
+import Reveal from "@/components/animations/Reveal";
+import AnimatedSkillItem from "@/components/animations/AnimatedSkillItem";
+import { ANIM } from "@/lib/animationConfig";
 
 const Resume = () => {
+  const stagger = ANIM.reveal.staggerMs;
+
   return (
     <>
       <article className="resume active">
         <header>
-          <h2 className="h2 article-title mt20">Resume</h2>
+          <Reveal>
+            <h2 className="h2 article-title mt20">Resume</h2>
+          </Reveal>
         </header>
         <section className="timeline">
-          <div className="title-wrapper">
-            <div className="icon-box">
-              <IoBookOutline color="goldenrod" />
+          <Reveal>
+            <div className="title-wrapper">
+              <div className="icon-box">
+                <IoBookOutline color="goldenrod" />
+              </div>
+              <h3 className="h3">Education</h3>
             </div>
-            <h3 className="h3">Education</h3>
-          </div>
+          </Reveal>
           <ol className="timeline-list">
-            <li className="timeline-item">
+            <Reveal
+              as="li"
+              className="timeline-item anim-timeline-item"
+              delay={0}
+            >
               <h4 className="h4 timeline-item-title">Graduation</h4>
-              <span>2021 — Present</span>
+              <span>2021 — 2026</span>
               <p className="timeline-text">
-                Enrolled at the Virtual University of Pakistan, where I
-                completed my first semester before pausing studies to pursue an
-                internship in Lahore. After 8 months of hands-on front-end developer  experience,
-                I secured my first job with XemenSolution in Multan. Currently,
-                I am balancing my studies with work, continuing my degree in the
-                first half of the day and contributing professionally in the
-                second.
+                I enrolled at the Virtual University of Pakistan (BS Computer
+                Science), paused after my first semester to pursue an internship,
+                then after 8 months of hands-on web development experience
+                got my first job with XemenSolution. I balanced study
+                and full-time work, and I successfully completed my degree in
+                September 2026.
               </p>
-            </li>
+            </Reveal>
 
-            <li className="timeline-item">
+            <Reveal
+              as="li"
+              className="timeline-item anim-timeline-item"
+              delay={stagger}
+            >
               <h4 className="h4 timeline-item-title">Intermediate</h4>
               <span>2019 — 2021</span>
               <p className="timeline-text">
@@ -39,9 +57,13 @@ const Resume = () => {
                 abilities and technical knowledge, essential for my journey in
                 web development.
               </p>
-            </li>
+            </Reveal>
 
-            <li className="timeline-item">
+            <Reveal
+              as="li"
+              className="timeline-item anim-timeline-item"
+              delay={stagger * 2}
+            >
               <h4 className="h4 timeline-item-title">High School</h4>
               <span>2017 — 2019</span>
               <p className="timeline-text">
@@ -51,72 +73,79 @@ const Resume = () => {
                 management, equipping me with essential technical and analytical
                 skills.
               </p>
-            </li>
+            </Reveal>
           </ol>
         </section>
         <section className="timeline">
-  <div className="title-wrapper">
-    <div className="icon-box">
-      <IoBookOutline color="goldenrod" />
-    </div>
-    <h3 className="h3">Experience</h3>
-  </div>
-  <ol className="timeline-list">
-    <li className="timeline-item">
-      <h4 className="h4 timeline-item-title">Frontend Developer</h4>
-      <span>2022 — Present</span>
-      <p className="timeline-text">
-        Over 1.5 years of experience in developing responsive and engaging user interfaces using HTML, CSS, JavaScript, ReactJS,redux, jQuery, Bootstrap, and Tailwind CSS. Skilled in building optimized, user-centered web solutions that adapt seamlessly across devices.
-      </p>
-    </li>
-    <li className="timeline-item">
-      <h4 className="h4 timeline-item-title">WordPress Developer</h4>
-      <span>5 months experience</span>
-      <p className="timeline-text">
-        Built customized websites and e-commerce solutions on WordPress with WooCommerce, enabling clients to establish and grow their online presence with user-friendly, scalable designs.
-      </p>
-    </li>
-    <li className="timeline-item">
-      <h4 className="h4 timeline-item-title">Full-Stack Developer (MERN)</h4>
-      <span>Current</span>
-      <p className="timeline-text">
-        Currently developing full-stack skills using the MERN stack, with experience in Next.js, Express.js, MongoDB, and Node.js. Completed three projects, building scalable, dynamic applications that demonstrate proficiency in both frontend and backend technologies.
-      </p>
-    </li>
-  </ol>
-</section>
+          <Reveal>
+            <div className="title-wrapper">
+              <div className="icon-box">
+                <IoBookOutline color="goldenrod" />
+              </div>
+              <h3 className="h3">Experience</h3>
+            </div>
+          </Reveal>
+          <ol className="timeline-list">
+            <Reveal
+              as="li"
+              className="timeline-item anim-timeline-item"
+              delay={0}
+            >
+              <h4 className="h4 timeline-item-title">WordPress Developer</h4>
+              <span>3+ years experience</span>
+              <p className="timeline-text">
+                I now work mainly on WordPress: custom themes, custom plugins,
+                Elementor, WooCommerce stores, and performance/SEO optimization.
+              </p>
+            </Reveal>
+            <Reveal
+              as="li"
+              className="timeline-item anim-timeline-item"
+              delay={stagger}
+            >
+              <h4 className="h4 timeline-item-title">Shopify Developer</h4>
+              <span>3+ years experience</span>
+              <p className="timeline-text">
+                Shopify store setup, custom theme development and customization with
+                Liquid, theme migrations, app integrations, and conversion-focused UI.
+              </p>
+            </Reveal>
+            <Reveal
+              as="li"
+              className="timeline-item anim-timeline-item"
+              delay={stagger * 2}
+            >
+              <h4 className="h4 timeline-item-title">OpenCart Developer</h4>
+              <span>2+ years experience</span>
+              <p className="timeline-text">
+                OpenCart store setup, theme customization, extensions, payment and
+                shipping integrations, and e-commerce performance optimization.
+              </p>
+            </Reveal>
+            <Reveal
+              as="li"
+              className="timeline-item anim-timeline-item"
+              delay={stagger * 3}
+            >
+              <h4 className="h4 timeline-item-title">Full-Stack Developer (MERN)</h4>
+              <span>2+ years experience</span>
+              <p className="timeline-text">
+                I am actively working on MERN stack projects (Next.js, Express.js,
+                MongoDB, Node.js), have completed multiple production projects, and
+                handle them alongside my WordPress and Shopify work.
+              </p>
+            </Reveal>
+          </ol>
+        </section>
 
         <section className="skill">
-          <h3 className="h3 skills-title">My skills after 2021</h3>
+          <Reveal>
+            <h3 className="h3 skills-title">My skills after 2021</h3>
+          </Reveal>
           <ul className="skills-list content-card">
-            <li className="skills-item">
-              <div className="title-wrapper">
-                <h5 className="h5">Frontend </h5>
-                <data value={80}>80%</data>
-              </div>
-              <div className="skill-progress-bg">
-                <div className="skill-progress-fill" style={{ width: "80%" }} />
-              </div>
-            </li>
-            <li className="skills-item">
-              <div className="title-wrapper">
-                <h5 className="h5">WordPress</h5>
-                <data value={70}>70%</data>
-              </div>
-              <div className="skill-progress-bg">
-                <div className="skill-progress-fill" style={{ width: "70%" }} />
-              </div>
-            </li>
-             
-            <li className="skills-item">
-              <div className="title-wrapper">
-                <h5 className="h5">Mern Stack</h5>
-                <data value={50}>50%</data>
-              </div>
-              <div className="skill-progress-bg">
-                <div className="skill-progress-fill" style={{ width: "50%" }} />
-              </div>
-            </li>
+            <AnimatedSkillItem title="WordPress" value={92} />
+            <AnimatedSkillItem title="Shopify" value={90} />
+            <AnimatedSkillItem title="MERN Stack" value={90} />
           </ul>
         </section>
       </article>

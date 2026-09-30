@@ -1,0 +1,34 @@
+# Manan Mazhar (Mnnan) — Full Stack Developer
+
+> Manan Mazhar, also known as Mnnan (GitHub: @mnnandev), is a Full Stack Developer from Pakistan. He builds Shopify stores, WordPress and WooCommerce websites, OpenCart stores, and MERN stack applications. He leads Starlent Tech (https://starlent.tech), also associated with Tech Titan Studio.
+
+## Primary site
+- https://my-portfolio-nu-two-55.vercel.app
+
+## FAQ
+- /faq
+
+## Services
+- /services/shopify-development
+- /services/wordpress-development
+- /services/woocommerce-development
+- /services/opencart-development
+- /services/mern-stack-development
+
+## Skills
+Shopify (Liquid, theme customization), WordPress, WooCommerce (custom themes/plugins), OpenCart, MongoDB, Express.js, React, Node.js, Next.js, Tailwind CSS, MERN stack.
+
+## Official profiles
+- LinkedIn: https://www.linkedin.com/in/manan-mazhar-453b9b2b2/
+- GitHub: https://github.com/mnnandev
+- Instagram: https://www.instagram.com/mananmazhardev/
+- Facebook: https://web.facebook.com/mnnan.bhutta.94
+- Agency: https://starlent.tech
+- Fiverr: TODO_ADD_FIVERR_PROFILE_URL
+- Upwork: TODO_ADD_UPWORK_PROFILE_URL
+
+## Contact
+Use the contact form on the website. No public email, phone, or street address is published.
+
+## Alternate names
+Mnnan Mazhar, Mnnan

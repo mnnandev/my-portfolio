@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Reveal from '@/components/animations/Reveal';
 import { FaPaperPlane } from 'react-icons/fa';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -49,16 +50,20 @@ const Contact = () => {
 
   return (
     <>
-      <article className="contact active">
+      <article className="contact active" id="contact">
         <header>
-          <h2 className="h2 article-title mt20">Contact</h2>
+          <Reveal>
+            <h2 className="h2 article-title mt20">Contact</h2>
+          </Reveal>
         </header>
         <section className="contact-form">
-          <h3 className="h3 form-title">Contact Form</h3>
+          <Reveal>
+            <h3 className="h3 form-title">Contact Form</h3>
+          </Reveal>
 
          
 
-          <form onSubmit={formik.handleSubmit} className="form">
+          <Reveal as="form" onSubmit={formik.handleSubmit} className="form">
             <div className="input-wrapper">
               <input
                 type="text"
@@ -109,11 +114,50 @@ const Contact = () => {
             </div>
           )}
 
-            <button className="form-btn" type="submit">
-              <FaPaperPlane className="text-[#ffda6b]" />
+            <button className="form-btn anim-btn-lift" type="submit">
+              <FaPaperPlane className="text-[#ffda6b] anim-btn-arrow" />
               <span>Send Message</span>
             </button>
-          </form>
+          </Reveal>
+        </section>
+        <section className="contact-profiles" aria-label="Social profiles">
+          <h3 className="h3 form-title">Connect</h3>
+          <ul className="contact-profile-links">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/manan-mazhar-453b9b2b2/"
+                rel="me noopener noreferrer"
+              >
+                Manan Mazhar on LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/mnnandev" rel="me noopener noreferrer">
+                Manan Mazhar on GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/mananmazhardev/"
+                rel="me noopener noreferrer"
+              >
+                Manan Mazhar on Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://web.facebook.com/mnnan.bhutta.94"
+                rel="me noopener noreferrer"
+              >
+                Manan Mazhar on Facebook
+              </a>
+            </li>
+            <li>
+              <a href="https://starlent.tech" rel="me noopener noreferrer">
+                Starlent Tech
+              </a>
+            </li>
+          </ul>
         </section>
       </article>
     </>

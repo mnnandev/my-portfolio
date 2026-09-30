@@ -2,7 +2,34 @@ import React, { useState } from "react";
 import { IoMdEye, IoMdClose } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Image from "next/image";
-import { projectcategories } from "@/public/assets/Data";
+import { projectcategories, PROJECT_PLACEHOLDER } from "@/public/assets/Data";
+import Reveal from "@/components/animations/Reveal";
+import { ANIM } from "@/lib/animationConfig";
+
+function ProjectThumb({ project, loadingStates, onLoad }) {
+  const [src, setSrc] = useState(project.src);
+
+  return (
+    <Image
+      src={src}
+      alt={project.name}
+      height={400}
+      width={800}
+      className={`project-image ${loadingStates[project.name] === false ? "loaded" : ""}`}
+      loading="lazy"
+      onLoad={() => onLoad(project.name)}
+      onError={() => {
+        if (src !== PROJECT_PLACEHOLDER) {
+          setSrc(PROJECT_PLACEHOLDER);
+        }
+        onLoad(project.name);
+      }}
+      style={{ objectFit: "cover", objectPosition: "top" }}
+      placeholder="blur"
+      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkMjU1LS0yMi4qLjgyPj4+Ojo4Ojo4Ojo4Ojo4Ojo4Ojo4Ojo4Ojr/2wBDAR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHr/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+    />
+  );
+}
 
 const Portfolio = () => {
   const [activeCate, setActiveCate] = useState("All");
@@ -81,7 +108,9 @@ const Portfolio = () => {
     <>
       <article className="portfolio active">
         <header>
-          <h2 className="h2 article-title mt20">Portfolio</h2>
+          <Reveal>
+            <h2 className="h2 article-title mt20">Portfolio</h2>
+          </Reveal>
         </header>
 
         <section className="projects">
@@ -129,9 +158,14 @@ const Portfolio = () => {
           {/* Project List */}
           <ul className="project-list">
             {filteredProjects.slice(0, visibleProjects).map((project, index) => (
-              <li className="project-item active" key={project.name + index}>
-                <div className="project-content">
-                  <div className="project-img">
+              <Reveal
+                as="li"
+                className="project-item active"
+                key={project.name + index}
+                delay={(index % 6) * ANIM.reveal.staggerMs}
+              >
+                <div className="project-content anim-project-hover">
+                  <div className="project-img" data-cursor="view">
                     <div className="project-item-icon-box">
                       <IoMdEye />
                     </div>
@@ -139,17 +173,10 @@ const Portfolio = () => {
                       {loadingStates[project.name] !== false && (
                         <div className="image-placeholder" />
                       )}
-                      <Image
-                        src={project.src}
-                        alt={project.name}
-                        height={400}
-                        width={800}
-                        className={`project-image ${loadingStates[project.name] === false ? 'loaded' : ''}`}
-                        loading="lazy"
-                        onLoad={() => handleImageLoad(project.name)}
-                        style={{ objectFit: "cover", objectPosition: "top" }}
-                        placeholder="blur"
-                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkMjU1LS0yMi4qLjgyPj4+Ojo4Ojo4Ojo4Ojo4Ojo4Ojo4Ojo4Ojr/2wBDAR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHr/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                      <ProjectThumb
+                        project={project}
+                        loadingStates={loadingStates}
+                        onLoad={handleImageLoad}
                       />
                     </div>
                   </div>
@@ -161,7 +188,7 @@ const Portfolio = () => {
                     <div className="project-links">
                       <button
                         onClick={() => openProjectModal(project)}
-                        className="view-details-btn"
+                        className="view-details-btn anim-btn-lift"
                       >
                         View Details
                       </button>
@@ -169,25 +196,36 @@ const Portfolio = () => {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="live-demo-btn"
+                        className="live-demo-btn anim-btn-lift"
                       >
                         <FaExternalLinkAlt /> Live Demo
                       </a>
                     </div>
                   </div>
                 </div>
-              </li>
+              </Reveal>
             ))}
           </ul>
 
           {/* Show More Button */}
           {hasMoreProjects && (
             <div className="show-more-container">
-              <button onClick={loadMoreProjects} className="show-more-btn">
+              <button
+                type="button"
+                onClick={loadMoreProjects}
+                className="show-more-btn anim-btn-lift"
+              >
                 Show More Projects
               </button>
             </div>
           )}
+
+          <Reveal>
+            <p className="portfolio-limited-note">
+              We&apos;ve featured a limited selection here. For more projects or
+              custom builds, please contact us.
+            </p>
+          </Reveal>
         </section>
 
         {/* Project Detail Modal */}
@@ -202,7 +240,15 @@ const Portfolio = () => {
                 <h2 className="modal-title">{selectedProject.name}</h2>
                 
                 <div className="modal-section">
-                  <h3>Description</h3>
+                  <h3>Problem</h3>
+                  <p>
+                    {selectedProject.problem ||
+                      "TODO: Add the client problem this project solved."}
+                  </p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>What I did</h3>
                   <p>{selectedProject.description || "No description available."}</p>
                 </div>
 
@@ -213,6 +259,14 @@ const Portfolio = () => {
                       <span key={index} className="tech-tag">{tech}</span>
                     )) || "No technologies specified."}
                   </div>
+                </div>
+
+                <div className="modal-section">
+                  <h3>Result</h3>
+                  <p>
+                    {selectedProject.result ||
+                      "TODO: Add measurable or qualitative project outcome."}
+                  </p>
                 </div>
 
                 <div className="modal-section">
@@ -429,11 +483,12 @@ const Portfolio = () => {
 
           .project-image {
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out, transform 8s ease-in-out;
             width: 100% !important;
-            height: 100% !important;
+            height: auto !important;
+            min-height: 100%;
             object-fit: cover !important;
-            object-position: top !important;
+            object-position: top center !important;
           }
 
           .project-image.loaded {
@@ -468,6 +523,16 @@ const Portfolio = () => {
           .show-more-btn:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-2);
+          }
+
+          .portfolio-limited-note {
+            margin: 1.75rem auto 0;
+            max-width: 36rem;
+            text-align: center;
+            font-size: var(--fs-7);
+            line-height: 1.5;
+            color: var(--light-gray);
+            opacity: 0.85;
           }
 
           /* Modal Styles */

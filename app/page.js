@@ -1,9 +1,15 @@
-import Image from "next/image";
 import PersonalPortfolio from "./personal-portfolio/page";
+import JsonLdScript from "@/components/seo/JsonLdScript";
+import { buildHomeGraphJsonLd } from "@/lib/jsonLd";
+import { defaultMetadata } from "./metadata";
+
+export const metadata = defaultMetadata;
+
 export default function Home() {
   return (
-     <>
-     <PersonalPortfolio />
-     </>
+    <>
+      <JsonLdScript data={buildHomeGraphJsonLd()} />
+      <PersonalPortfolio />
+    </>
   );
 }

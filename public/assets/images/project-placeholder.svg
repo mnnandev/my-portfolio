@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Project preview placeholder">
+  <rect width="800" height="450" fill="#2b2b2b"/>
+  <rect x="48" y="48" width="704" height="354" rx="12" fill="#383838" stroke="#555" stroke-width="2"/>
+  <path d="M320 210h160v30H320zm0 60h120v20H320z" fill="#666"/>
+  <text x="400" y="130" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="22">Preview unavailable</text>
+</svg>

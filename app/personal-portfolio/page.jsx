@@ -4,6 +4,7 @@ import Aside from "@/components/Aside";
 import Contact from "@/components/Contact";
 import Portfolio from "@/components/Portfolio";
 import Resume from "@/components/Resume";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { motion } from "framer-motion";
 import { FaSun, FaMoon } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
@@ -11,7 +12,7 @@ import React, { useState, useEffect } from "react";
 const PersonalPortfolio = () => {
   const [activeRoute, setActiveRoute] = useState("portfolio");
   const [lightMode, setLightMode] = useState(false);
-  const [isHydrated, setIsHydrated] = useState(false); // Ensure no flicker
+  const [isHydrated, setIsHydrated] = useState(true);
 
   // Apply theme based on state
   const applyTheme = (isLightMode) => {
@@ -35,9 +36,6 @@ const PersonalPortfolio = () => {
     applyTheme(isLightMode); // Apply theme based on preference
     setIsHydrated(true); // Mark as hydrated
   }, []);
-
-  // Only render once hydration is complete
-  if (!isHydrated) return null;
 
   return (
     <>
@@ -80,12 +78,21 @@ const PersonalPortfolio = () => {
               {lightMode ? <FaMoon className="moon" /> : <FaSun className="sun" />}
             </motion.button>
           </nav>
-          {activeRoute === "about" ? <About /> : ""}
-          {activeRoute === "resume" ? <Resume /> : ""}
-          {activeRoute === "portfolio" ? <Portfolio /> : ""}
-          {activeRoute === "contact" ? <Contact /> : ""}
+          <div className={activeRoute === "about" ? "" : "tab-panel-hidden"}>
+            <About />
+          </div>
+          <div className={activeRoute === "resume" ? "" : "tab-panel-hidden"}>
+            <Resume />
+          </div>
+          <div className={activeRoute === "portfolio" ? "" : "tab-panel-hidden"}>
+            <Portfolio />
+          </div>
+          <div className={activeRoute === "contact" ? "" : "tab-panel-hidden"}>
+            <Contact />
+          </div>
         </div>
       </main>
+      <WhatsAppFloat />
     </>
   );
 };

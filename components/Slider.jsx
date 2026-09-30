@@ -1,10 +1,24 @@
 import Slider from "react-slick";
-import { avatar1, iconquote } from "@/public/assets/Data";
+import { avatar1, iconquote, PROFILE_PLACEHOLDER } from "@/public/assets/Data";
 import {   FaTimes } from "react-icons/fa";
 import React, { useState } from "react";
 import Image from "next/image";
 
 
+
+function TestimonialAvatar({ className, width, height, alt }) {
+  const [src, setSrc] = useState(avatar1);
+  return (
+    <Image
+      src={src}
+      className={className}
+      alt={alt}
+      width={width}
+      height={height}
+      onError={() => setSrc(PROFILE_PLACEHOLDER)}
+    />
+  );
+}
 
 function MultipleItems() {
   const [showModel, setShowModel] = useState(false);
@@ -27,8 +41,7 @@ function MultipleItems() {
           >
             <li className="testimonials-item">
               <div className="content-card">
-                <Image
-                  src={avatar1}
+                <TestimonialAvatar
                   className="testimonials-avatar-box"
                   alt="Daniel lewis"
                   width={60}
@@ -54,8 +67,7 @@ function MultipleItems() {
           >
             <li className="testimonials-item">
               <div className="content-card">
-                <Image
-                  src={avatar1}
+                <TestimonialAvatar
                   className="testimonials-avatar-box"
                   alt="Daniel lewis"
                   width={60}
@@ -81,8 +93,7 @@ function MultipleItems() {
           >
             <li className="testimonials-item">
               <div className="content-card">
-                <Image
-                  src={avatar1}
+                <TestimonialAvatar
                   className="testimonials-avatar-box"
                   alt="Daniel lewis"
                   width={60}
@@ -108,8 +119,7 @@ function MultipleItems() {
           >
             <li className="testimonials-item">
               <div className="content-card">
-                <Image
-                  src={avatar1}
+                <TestimonialAvatar
                   className="testimonials-avatar-box"
                   alt="Daniel lewis"
                   width={60}
@@ -135,8 +145,7 @@ function MultipleItems() {
           >
             <li className="testimonials-item">
               <div className="content-card">
-                <Image
-                  src={avatar1}
+                <TestimonialAvatar
                   className="testimonials-avatar-box"
                   alt="Daniel lewis"
                   width={60}
@@ -165,8 +174,7 @@ function MultipleItems() {
             <FaTimes color="goldenrod" />
           </button>
           <div className="modal-Image-wrapper">
-            <Image
-              src={avatar1}
+            <TestimonialAvatar
               alt="Daniel lewis"
               className="modal-Image-wrapper"
               width={80}

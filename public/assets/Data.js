@@ -35,6 +35,144 @@ const projectcategories = [
     subcategories: ["Theme", "Plugin", "Project"],
     projectDetail: [
       {
+        src: "/assets/images/brightdreamers.png",
+        name: "Bright Dreamers",
+        link: "https://brightdreamers.org/",
+        subcategory: "Theme",
+        problem:
+          "A nonprofit needed a kid-friendly branded site with a custom look — not a stock theme — built fast and easy for the team to manage in WordPress.",
+        result:
+          "Delivered a custom WordPress theme from HTML/CSS in 10 days, live at brightdreamers.org with donate, apply, and program sections ready for content updates.",
+        description:
+          "Bright Dreamers is a nonprofit community site inspiring children to dream, create, learn, lead, and give. I designed and built the full UI in HTML and CSS, then converted it into a custom WordPress theme with the needed theme customizations so the client can manage pages, CTAs, and content in WordPress. Delivered end to end in 10 days.",
+        features: [
+          "Custom UI built from scratch in HTML & CSS",
+          "Converted into a custom WordPress theme",
+          "Theme customizations for WordPress content editing",
+          "Hero, mission, experiences, and CTA sections",
+          "Donate & Apply to Join CTAs",
+          "Newsletter / subscribe section",
+          "Fully responsive, kid-friendly brand layout",
+          "Delivered in 10 days"
+        ],
+        technologies: [
+          "HTML",
+          "CSS",
+          "WordPress",
+          "Custom Theme",
+          "PHP",
+          "JavaScript"
+        ],
+        date: "October 2026",
+        gallery: ["/assets/images/brightdreamers.png"]
+      },
+      {
+        src: "/assets/images/screencapture-clinicaltrainingacademy-2026-10-03-17_14_18.png",
+        name: "Clinical Training Academy",
+        link: "https://clinicaltrainingacademy.com/",
+        live: "https://clinicaltrainingacademy.com/",
+        subcategory: "Plugin",
+        problem:
+          "A clinical education platform needed a full learning system in WordPress — courses, exam prep, users, emails, certificates, and supervision booking — without stitching together multiple third-party plugins.",
+        result:
+          "Built a complete custom WordPress plugin with admin dashboard, CE/exam management, user & email control, auto certificates, enrollment workflows, and supervision booking — delivered in 15 days.",
+        description:
+          "Clinical Training Academy is a continuing education platform for clinical professionals. I built a full custom WordPress plugin that powers the whole system: admin dashboard, CE course add/manage, exam preparation control, user/candidate management, email workflows (welcome + enrollment), auto-generated certificates, and a supervision booking system. The entire backend logic is custom — delivered in 15 days.",
+        features: [
+          "Custom WordPress plugin (full system)",
+          "Admin dashboard",
+          "CE courses — add, edit, and manage",
+          "Exam preparation — add and control",
+          "User / candidate management",
+          "Email control (welcome + enrollment mails)",
+          "Auto-generated certificates on completion",
+          "Supervision booking system",
+          "Delivered in 15 days"
+        ],
+        technologies: [
+          "WordPress",
+          "Custom Plugin",
+          "PHP",
+          "MySQL",
+          "JavaScript",
+          "HTML",
+          "CSS"
+        ],
+        date: "October 2026",
+        gallery: [
+          "/assets/images/screencapture-clinicaltrainingacademy-2026-10-03-17_14_18.png"
+        ]
+      },
+      {
+        src: "/assets/images/screencapture-velmorascents-us-2026-10-03-17_41_03.png",
+        name: "Velmora Scents",
+        link: "https://velmorascents.us/",
+        subcategory: "Project",
+        problem:
+          "A luxury perfume brand needed a complete WooCommerce store with product catalog, custom product pages, payments, and TikTok ads tracking ready for sales.",
+        result:
+          "Delivered a full WordPress ecommerce store in 7 days — products loaded, custom single product page, payment integration, and TikTok ads system connected.",
+        description:
+          "Velmora Scents is a luxury perfume ecommerce store built on WordPress + WooCommerce. I set up the full store, added products, built a fully custom single product page, completed payment integration, and integrated the TikTok ads system for tracking and campaigns. Delivered in 7 days.",
+        features: [
+          "WordPress + WooCommerce ecommerce store",
+          "Full product catalog setup",
+          "Custom single product page",
+          "Complete payment integration",
+          "TikTok ads system integration",
+          "Shop, brands, and best-sellers sections",
+          "Responsive storefront",
+          "Delivered in 7 days"
+        ],
+        technologies: [
+          "WordPress",
+          "WooCommerce",
+          "PHP",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "TikTok Ads"
+        ],
+        date: "October 2026",
+        gallery: [
+          "/assets/images/screencapture-velmorascents-us-2026-10-03-17_41_03.png"
+        ]
+      },
+      {
+        src: "/assets/images/screencapture-mana-pucoo-nl-2026-10-03-17_44_55.png",
+        name: "MANA Interior",
+        link: "https://mana.pucoo.nl/",
+        subcategory: "Project",
+        problem:
+          "An interior architecture studio needed a premium custom WordPress site with editable sliders/widgets, polished animations, and a branded preloader — without relying only on stock Elementor blocks.",
+        result:
+          "Built the site from scratch in 5 days with custom slider widgets controllable from a dashboard like Elementor, custom animations, and a custom preloader.",
+        description:
+          "MANA Interior is a high-end interior architecture website for crafting soulful spaces. I built it from scratch with custom slider widgets that are controllable from a dashboard similar to Elementor, custom animations throughout the experience, and a custom preloader. Delivered in 5 days.",
+        features: [
+          "Built from scratch (custom WordPress build)",
+          "Custom slider widgets (Elementor-style dashboard control)",
+          "Custom animations",
+          "Custom preloader",
+          "Portfolio / selected work sections",
+          "Process and academy content sections",
+          "Premium responsive layout",
+          "Delivered in 5 days"
+        ],
+        technologies: [
+          "WordPress",
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "PHP",
+          "Custom Widgets"
+        ],
+        date: "October 2026",
+        gallery: [
+          "/assets/images/screencapture-mana-pucoo-nl-2026-10-03-17_44_55.png"
+        ]
+      },
+      {
         src: "/assets/images/screencapture-poplasers-home-2026-09-24-17_49_24.jpg",
         name: "POP Lasers",
         link: "https://poplasers.com/home/",

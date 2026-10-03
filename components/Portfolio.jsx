@@ -192,14 +192,17 @@ const Portfolio = () => {
                       >
                         View Details
                       </button>
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="live-demo-btn anim-btn-lift"
-                      >
-                        <FaExternalLinkAlt /> Live Demo
-                      </a>
+                      {(project.link || project.live) && (
+                        <a
+                          href={project.link || project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="live-demo-btn anim-btn-lift"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <FaExternalLinkAlt /> Live Demo
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -272,14 +275,16 @@ const Portfolio = () => {
                 <div className="modal-section">
                   <h3>Project Links</h3>
                   <div className="project-links">
-                    <a
-                      href={selectedProject.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="live-demo-btn"
-                    >
-                      <FaExternalLinkAlt /> Live Demo
-                    </a>
+                    {(selectedProject.link || selectedProject.live) && (
+                      <a
+                        href={selectedProject.link || selectedProject.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="live-demo-btn"
+                      >
+                        <FaExternalLinkAlt /> Live Demo
+                      </a>
+                    )}
                     {selectedProject.githubUrl && (
                       <a
                         href={selectedProject.githubUrl}
@@ -291,6 +296,11 @@ const Portfolio = () => {
                       </a>
                     )}
                   </div>
+                  {(selectedProject.link || selectedProject.live) && (
+                    <p className="project-live-url">
+                      {selectedProject.link || selectedProject.live}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -460,6 +470,13 @@ const Portfolio = () => {
           .github-btn:hover {
             border-color: var(--orange-yellow-crayola);
             color: var(--orange-yellow-crayola);
+          }
+
+          .project-live-url {
+            margin-top: 0.75rem;
+            font-size: var(--fs-7);
+            color: var(--light-gray-70);
+            word-break: break-all;
           }
 
           /* Image Loading Styles */

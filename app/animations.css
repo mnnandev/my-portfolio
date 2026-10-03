@@ -231,11 +231,11 @@
     0 0 24px rgba(var(--anim-accent-rgb), 0.35);
   will-change: transform, width, height, border-width;
   transition:
-    background-color 0.2s ease,
-    box-shadow 0.2s ease,
-    width 0.25s ease,
-    height 0.25s ease,
-    border-width 0.25s ease;
+    background-color 0.12s ease,
+    box-shadow 0.12s ease,
+    width 0.14s ease,
+    height 0.14s ease,
+    border-width 0.14s ease;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
 }

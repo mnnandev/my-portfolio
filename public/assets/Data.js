@@ -364,6 +364,30 @@ const projectcategories = [
     category: "Shopify",
     projectDetail: [
       {
+        src: "/assets/images/screencapture-talkbacksnacks-2026-10-03-18_53_42.png",
+        name: "Talkback Snacks",
+        link: "https://talkbacksnacks.com/",
+        problem:
+          "A snack brand needed a custom Shopify storefront with bold branding and sections that the client could update from Shopify admin — not a locked hard-coded page.",
+        result:
+          "Delivered a custom Shopify store in 7 days with theme sections/dashboard controls so content can be managed from Shopify admin.",
+        description:
+          "Talkback Snacks is a Shopify store for globally inspired shortbread cookies. I built the store with custom theme work and dashboard/section controls so homepage content can be managed from Shopify admin. Delivered in 7 days.",
+        features: [
+          "Custom Shopify store build",
+          "Custom theme sections / dashboard controls",
+          "Content editable from Shopify admin",
+          "Custom homepage layout (flavors, heat scale, story)",
+          "Product setup and storefront polish",
+          "Delivered in 7 days"
+        ],
+        technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
+        date: "October 2026",
+        gallery: [
+          "/assets/images/screencapture-talkbacksnacks-2026-10-03-18_53_42.png"
+        ]
+      },
+      {
         src: "/assets/images/screencapture-atjaunojies-qid40bnt-myshopify-2026-09-24-17_31_07.jpg",
         name: "Atjaunojies",
         link: "https://atjaunojies-qid40bnt.myshopify.com/",

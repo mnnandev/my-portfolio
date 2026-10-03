@@ -1,22 +1,33 @@
 # Manan Mazhar (Mnnan) — Full Stack Developer
 
-> Manan Mazhar, also known as Mnnan (GitHub: @mnnandev), is a Full Stack Developer from Pakistan. He builds Shopify stores, WordPress and WooCommerce websites, OpenCart stores, and MERN stack applications. He leads Starlent Tech (https://starlent.tech), also associated with Tech Titan Studio.
+> Manan Mazhar, also known as Mnnan (GitHub: @mnnandev), is a Full Stack Developer from Pakistan. He builds custom Shopify stores, WordPress and WooCommerce websites (themes & plugins), OpenCart stores, and MERN stack applications. He leads Starlent Tech (https://starlent.tech), also associated with Tech Titan Studio. International remote clients welcome. Fast delivery on store and site builds.
 
 ## Primary site
 - https://my-portfolio-nu-two-55.vercel.app
+- Set NEXT_PUBLIC_SITE_URL to your custom domain when live
 
 ## FAQ
 - /faq
 
 ## Services
-- /services/shopify-development
-- /services/wordpress-development
-- /services/woocommerce-development
-- /services/opencart-development
-- /services/mern-stack-development
+- /services/shopify-development — Custom Shopify themes, Liquid sections, migrations, apps
+- /services/wordpress-development — Custom themes, plugins, Elementor, performance
+- /services/woocommerce-development — WooCommerce stores, product pages, payments
+- /services/opencart-development — OpenCart store setup and customization
+- /services/mern-stack-development — MongoDB, Express, React, Node.js, Next.js apps
+
+## Featured projects (live)
+- Talkback Snacks (Shopify): https://talkbacksnacks.com/
+- Bright Dreamers (WordPress Theme): https://brightdreamers.org/
+- Clinical Training Academy (Custom WP Plugin): https://clinicaltrainingacademy.com/
+- Velmora Scents (WooCommerce): https://velmorascents.us/
+- MANA Interior (Custom WordPress): https://mana.pucoo.nl/
+- POP Lasers (WordPress): https://poplasers.com/home/
+- PrideMark Cards (WooCommerce): https://pridemarkcards.com/
+- Lani Glow (Shopify): https://laniglow.com/
 
 ## Skills
-Shopify (Liquid, theme customization), WordPress, WooCommerce (custom themes/plugins), OpenCart, MongoDB, Express.js, React, Node.js, Next.js, Tailwind CSS, MERN stack.
+Shopify (Liquid, theme customization, admin sections), WordPress, WooCommerce, custom WordPress themes & plugins, OpenCart, MongoDB, Express.js, React, Node.js, Next.js, Tailwind CSS, MERN stack, payment integrations, TikTok ads / ecommerce tracking.
 
 ## Official profiles
 - LinkedIn: https://www.linkedin.com/in/manan-mazhar-453b9b2b2/
@@ -28,7 +39,7 @@ Shopify (Liquid, theme customization), WordPress, WooCommerce (custom themes/plu
 - Upwork: TODO_ADD_UPWORK_PROFILE_URL
 
 ## Contact
-Use the contact form on the website. No public email, phone, or street address is published.
+Use the contact form on the website, or WhatsApp / email from the portfolio sidebar when published.
 
 ## Alternate names
-Mnnan Mazhar, Mnnan
+Manan Mazhar, Mnnan Mazhar, Mnnan, mnnandev

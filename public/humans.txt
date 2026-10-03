@@ -1,0 +1,12 @@
+/* TEAM */
+Developer: Manan Mazhar (Mnnan)
+Site: https://my-portfolio-nu-two-55.vercel.app
+GitHub: https://github.com/mnnandev
+LinkedIn: https://www.linkedin.com/in/manan-mazhar-453b9b2b2/
+Agency: Starlent Tech — https://starlent.tech
+Location: Pakistan
+
+/* SITE */
+Standards: HTML5, CSS3, Schema.org JSON-LD
+Stack: Next.js, React, WordPress, Shopify, WooCommerce, OpenCart, MERN
+Language: English

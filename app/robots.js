@@ -1,7 +1,6 @@
 import { siteUrl } from "@/lib/siteConfig";
 
-const allowAll = [
-  "*",
+const aiBots = [
   "GPTBot",
   "OAI-SearchBot",
   "ChatGPT-User",
@@ -10,15 +9,21 @@ const allowAll = [
   "PerplexityBot",
   "Google-Extended",
   "Applebot-Extended",
-  "Bingbot",
 ];
 
 export default function robots() {
   return {
-    rules: allowAll.map((userAgent) => ({
-      userAgent,
-      allow: "/",
-    })),
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/"],
+      },
+      ...aiBots.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+      })),
+    ],
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,
   };

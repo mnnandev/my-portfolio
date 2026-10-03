@@ -19,18 +19,21 @@ export const defaultMetadata = {
     template: `%s | ${person.name}`,
   },
   description: seo.description,
+  applicationName: person.name,
   keywords: seo.keywords,
-  authors: [{ name: person.name }, { name: "Mnnan Mazhar" }],
+  authors: [
+    { name: person.name, url: siteUrl },
+    { name: "Mnnan Mazhar", url: siteUrl },
+  ],
   creator: person.name,
   publisher: person.name,
-  links: siteConfig.links,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     title: seo.title,
     description: seo.description,
-    siteName: person.name,
+    siteName: `${person.name} — Portfolio`,
     images: [
       {
         url: person.imagePath,
@@ -45,10 +48,12 @@ export const defaultMetadata = {
     title: seo.title,
     description: seo.description,
     images: [person.imagePath],
+    creator: `@${person.handle}`,
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -58,24 +63,35 @@ export const defaultMetadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
   alternates: {
     canonical: siteUrl,
+    types: {
+      "text/plain": `${siteUrl}/llms.txt`,
+    },
   },
   verification: {
     google: "gTSOWpNvkGYsqnxxY7EnZeXyN8SQh5Ue6EcekfVTBZY",
   },
   category: "technology",
-  classification: "Portfolio",
+  classification: "Portfolio / Full Stack Developer",
   referrer: "origin-when-cross-origin",
   metadataBase: new URL(siteUrl),
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
+  },
+  other: {
+    "geo.region": "PK",
+    "geo.placename": "Pakistan",
   },
 };

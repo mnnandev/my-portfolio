@@ -1,11 +1,13 @@
 {
   "name": "Manan Mazhar | Full Stack Developer",
   "short_name": "Manan Mazhar",
-  "description": "Full Stack Developer — Shopify, WordPress, WooCommerce, OpenCart and MERN stack.",
+  "description": "Hire Manan Mazhar (Mnnan) — Full Stack Developer for Shopify, WordPress, WooCommerce, OpenCart and MERN stack.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#ffd60a",
+  "lang": "en",
+  "categories": ["business", "productivity", "portfolio"],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

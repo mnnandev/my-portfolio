@@ -2,15 +2,22 @@ import { serviceSlugs } from "@/lib/servicesContent";
 import { siteUrl } from "@/lib/siteConfig";
 
 export default function sitemap() {
-  const base = siteUrl;
   const now = new Date();
 
-  const staticRoutes = ["", "/faq", ...serviceSlugs.map((s) => `/services/${s}`)];
+  const routes = [
+    { path: "", changeFrequency: "weekly", priority: 1 },
+    { path: "/faq", changeFrequency: "monthly", priority: 0.9 },
+    ...serviceSlugs.map((slug) => ({
+      path: `/services/${slug}`,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    })),
+  ];
 
-  return staticRoutes.map((route) => ({
-    url: `${base}${route}`,
+  return routes.map((route) => ({
+    url: `${siteUrl}${route.path}`,
     lastModified: now,
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.85,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
   }));
 }

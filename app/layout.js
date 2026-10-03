@@ -74,6 +74,10 @@ export default function RootLayout({ children }) {
 
         <link rel="manifest" href="/site.webmanifest" />
 
+        <link rel="author" type="text/plain" href="/humans.txt" />
+
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM information" />
+
         <meta name="msapplication-TileColor" content="#ffd60a" />
 
         <meta

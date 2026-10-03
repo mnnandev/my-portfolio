@@ -108,3 +108,24 @@
 .faq-standalone-back a {
   color: var(--orange-yellow-crayola);
 }
+
+.seo-page-h1 {
+  color: var(--white-2);
+  font-size: var(--fs-2);
+  margin: 0 0 0.75rem;
+}
+
+.seo-page-lead {
+  margin-bottom: 1.5rem;
+  color: var(--light-gray);
+}
+
+.service-page__breadcrumb {
+  margin-bottom: 1rem;
+  font-size: var(--fs-7);
+  color: var(--light-gray);
+}
+
+.service-page__breadcrumb a {
+  color: var(--orange-yellow-crayola);
+}

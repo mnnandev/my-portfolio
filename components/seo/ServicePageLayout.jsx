@@ -1,6 +1,7 @@
 import Link from "next/link";
 import JsonLdScript from "./JsonLdScript";
 import { buildServicePageGraphJsonLd } from "@/lib/jsonLd";
+import { person } from "@/lib/siteConfig";
 
 export default function ServicePageLayout({ service }) {
   const jsonLd = buildServicePageGraphJsonLd(service.slug);
@@ -9,9 +10,13 @@ export default function ServicePageLayout({ service }) {
     <>
       <JsonLdScript data={jsonLd} />
       <main className="service-page">
-        <p>
-          <Link href="/">← Back to portfolio</Link>
-        </p>
+        <nav className="service-page__breadcrumb" aria-label="Breadcrumb">
+          <Link href="/">Home</Link>
+          <span aria-hidden="true"> / </span>
+          <span>Services</span>
+          <span aria-hidden="true"> / </span>
+          <span>{service.h1}</span>
+        </nav>
         <h1>{service.h1}</h1>
         <p className="service-page__intro">{service.intro}</p>
         {service.body.map((paragraph) => (
@@ -39,7 +44,14 @@ export default function ServicePageLayout({ service }) {
           ))}
         </dl>
         <p className="service-page__cta">
-          <Link href="/#contact">Contact Manan Mazhar about {service.serviceType}</Link>
+          <Link href="/#contact">
+            Contact {person.name} about {service.serviceType}
+          </Link>
+        </p>
+        <p>
+          <Link href="/faq">More FAQs</Link>
+          {" · "}
+          <Link href="/">Back to portfolio</Link>
         </p>
       </main>
     </>

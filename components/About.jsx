@@ -221,7 +221,7 @@ const About = () => {
             Manan Mazhar (also known as Mnnan) is a Full Stack Developer from
             Pakistan who builds Shopify stores, WordPress and WooCommerce
             websites, OpenCart stores and MERN stack applications. He runs the
-            digital agency Starlent Tech. With 5+ years of experience and 200+
+            digital agency Starlent Tech. With 4+ years of experience and 200+
             client projects, he delivers store launches, custom plugins, and
             scalable web apps. Open to freelance and long-term collaborations.
           </p>

@@ -8,12 +8,11 @@ export default function AnimatedSkillItem({ title, value }) {
   const ref = useRef(null);
   const inView = useInViewOnce(ref);
   const [width, setWidth] = useState(0);
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue] = useState(value);
 
   useEffect(() => {
     if (!inView) {
       setWidth(0);
-      setDisplayValue(0);
       return;
     }
 
@@ -23,12 +22,10 @@ export default function AnimatedSkillItem({ title, value }) {
 
     if (reduced) {
       setWidth(value);
-      setDisplayValue(value);
       return;
     }
 
     setWidth(0);
-    setDisplayValue(0);
 
     const barDuration = ANIM.skillBar.durationMs;
     const start = performance.now();
@@ -38,7 +35,6 @@ export default function AnimatedSkillItem({ title, value }) {
       const t = Math.min(1, (now - start) / barDuration);
       const eased = 1 - (1 - t) ** 3;
       setWidth(Math.round(value * eased));
-      setDisplayValue(Math.round(value * eased));
       if (t < 1) rafId = requestAnimationFrame(tick);
     };
     rafId = requestAnimationFrame(tick);

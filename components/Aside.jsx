@@ -87,7 +87,7 @@ const Aside = () => {
               <MdLocationOn color="goldenrod" />
             </div>
             <div className="contact-info">
-              <p className="contact-title">Vehair</p>
+              <p className="contact-title">Vehari</p>
               <address>vehari,punjab,pakistan</address>
             </div>
           </li>
